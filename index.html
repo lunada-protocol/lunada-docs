@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<title>LUNADA: private assets on Solana, under the issuer’s rules</title>
+<meta name="description" content="LUNADA is a private pool on Solana for SOL and for new tokens that carry an auditor, a list of approved holders, or both. A transfer hides the asset, the amount and the parties.">
+<link rel="canonical" href="https://lunada.online/">
+<meta name="theme-color" content="#F5F3EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12181D" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LUNADA">
+<meta property="og:url" content="https://lunada.online/">
+<meta property="og:title" content="LUNADA: private assets on Solana, under the issuer’s rules">
+<meta property="og:description" content="LUNADA is a private pool on Solana for SOL and for new tokens that carry an auditor, a list of approved holders, or both. A transfer hides the asset, the amount and the parties.">
+<meta property="og:image" content="https://lunada.online/assets/lunada-mark.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@lunada_protocol">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/lunada-mark.png">
+<link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="lp" id="top">
+<a class="skip" href="#main">Skip to the content</a>
+
+
+
+<header class="top"><div class="wrap"><div class="top-in">
+  <a class="brand" href="#top"><span class="logo" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 6A44 44 0 1 0 94 50A34 34 0 1 1 50 6Z"></path></svg></span>LUNADA</a>
+  <nav class="sections" aria-label="Sections">
+    <a href="#issuers">Issuers</a>
+    <a href="#auditors">Auditors</a>
+    <a href="#holders">Holders</a>
+    <a href="#relayers">Relayers</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#raise">Raise</a>
+  </nav>
+  <nav class="out" aria-label="Links">
+    <a href="https://github.com/lunada-protocol/lunada-docs" rel="noopener">White paper</a>
+    <a href="https://x.com/lunada_protocol" rel="noopener">X</a>
+  </nav>
+</div></div></header>
+
+<main id="main">
+
+<section class="hero"><div class="wrap">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <h1>Private assets on Solana, under the issuer’s rules.</h1>
+      <p class="lede">LUNADA is a private pool for SOL and for new tokens that carry an auditor, a list of approved holders, or both. A transfer hides the asset, the amount and the parties. The issuer’s rules hold in every transfer, enforced by proof.</p>
+      <p class="actions"><a class="btn" href="#raise">The raise</a><a class="btn second" href="https://github.com/lunada-protocol/lunada-docs" rel="noopener">Read the white paper</a></p>
+      <dl class="facts">
+        <div><dt class="label">Status</dt><dd>Built, not yet on a public network</dd></div>
+        <div><dt class="label">Public test network</dt><dd>January 2027</dd></div>
+        <div><dt class="label">Mainnet</dt><dd>March 2027 at the latest</dd></div>
+        <div><dt class="label">Raise</dt><dd>USD 250,000 minimum</dd></div>
+      </dl>
+    </div>
+    <figure>
+      <div class="ui bare" inert>
+        <div class="review">
+          <h3>Review LUNADA operation</h3>
+          <dl>
+            <dt>Operation</dt><dd>Create token</dd>
+            <dt>Symbol</dt><dd>BOND</dd>
+            <dt>Decimal places</dt><dd>0</dd>
+            <dt>Token address</dt><dd>4kQ2nTz8LmWpGd5vYh3CsJe7NbXa9Ru6TfKx9RrE1Vb</dd>
+            <dt>Kind</dt><dd>A standard Solana token (Token-2022); its name and symbol are stored in the token</dd>
+            <dt>Mint authority</dt><dd>Your Solana account DKDWgkttVgtX…JfbD1qqg1Diz: only it can mint this token</dd>
+            <dt>Members only</dt><dd>Yes, for good. Only LUNADA addresses you approve can receive or send this token privately</dd>
+            <dt>Freeze authority</dt><dd>None</dd>
+            <dt>Audited</dt><dd>Yes, for good. The auditor reads every private movement of this token: sending address, receiving address, amount</dd>
+            <dt>Audit key</dt><dd>lunadaaudit1_WKctDE7mGapDjPCFedERFneD7oHQsspDopcDQCn9JUdKmHZ5MhqN0Xk3vE2uT8yQw4cJrLs9bHf6aPd1oGiKmZxC7VnBt5WQe4Yt</dd>
+          </dl>
+          <button type="button">Sign and send</button><button class="secondary" type="button">Cancel</button>
+        </div>
+      </div>
+      <figcaption class="cap">LUNADA wallet. An issuer creates a token that is audited and members-only, and reads its rules before signing. Example data.</figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section class="band" id="what"><div class="wrap">
+  <div class="head">
+    <p class="label">What it is</p>
+    <h2>One asset, two sides of the same chain.</h2>
+    <p class="lede">LUNADA is one program on Solana. In the open, an asset is an ordinary Solana token in an ordinary account. Inside the pool it is a private note, and the chain stores only its hash. A holding crosses from one side to the other in one transaction.</p>
+  </div>
+  <figure class="mountain block">
+    <svg viewBox="0 0 1136 318" role="img" aria-label="A mountain with the sun on its left and a crescent moon on its right. The slopes that face the sun are plain. The slopes that face away from it are hatched.">
+<defs><clipPath id="shade"><polygon points="548,44 852,296 612,296"/><polygon points="330,150 376.65,218.1 343.9,251.4"/><polygon points="800,170 1010,296 852,296 835.7,282.5"/></clipPath></defs>
+<g clip-path="url(#shade)"><path class="h" d="M60 300L330 30"/><path class="h k" d="M67 300L337 30"/><path class="h k" d="M74 300L344 30"/><path class="h" d="M81 300L351 30"/><path class="h k" d="M88 300L358 30"/><path class="h k" d="M95 300L365 30"/><path class="h" d="M102 300L372 30"/><path class="h k" d="M109 300L379 30"/><path class="h k" d="M116 300L386 30"/><path class="h" d="M123 300L393 30"/><path class="h k" d="M130 300L400 30"/><path class="h k" d="M137 300L407 30"/><path class="h" d="M144 300L414 30"/><path class="h k" d="M151 300L421 30"/><path class="h k" d="M158 300L428 30"/><path class="h" d="M165 300L435 30"/><path class="h k" d="M172 300L442 30"/><path class="h k" d="M179 300L449 30"/><path class="h" d="M186 300L456 30"/><path class="h k" d="M193 300L463 30"/><path class="h k" d="M200 300L470 30"/><path class="h" d="M207 300L477 30"/><path class="h k" d="M214 300L484 30"/><path class="h k" d="M221 300L491 30"/><path class="h" d="M228 300L498 30"/><path class="h k" d="M235 300L505 30"/><path class="h k" d="M242 300L512 30"/><path class="h" d="M249 300L519 30"/><path class="h k" d="M256 300L526 30"/><path class="h k" d="M263 300L533 30"/><path class="h" d="M270 300L540 30"/><path class="h k" d="M277 300L547 30"/><path class="h k" d="M284 300L554 30"/><path class="h" d="M291 300L561 30"/><path class="h k" d="M298 300L568 30"/><path class="h k" d="M305 300L575 30"/><path class="h" d="M312 300L582 30"/><path class="h k" d="M319 300L589 30"/><path class="h k" d="M326 300L596 30"/><path class="h" d="M333 300L603 30"/><path class="h k" d="M340 300L610 30"/><path class="h k" d="M347 300L617 30"/><path class="h" d="M354 300L624 30"/><path class="h k" d="M361 300L631 30"/><path class="h k" d="M368 300L638 30"/><path class="h" d="M375 300L645 30"/><path class="h k" d="M382 300L652 30"/><path class="h k" d="M389 300L659 30"/><path class="h" d="M396 300L666 30"/><path class="h k" d="M403 300L673 30"/><path class="h k" d="M410 300L680 30"/><path class="h" d="M417 300L687 30"/><path class="h k" d="M424 300L694 30"/><path class="h k" d="M431 300L701 30"/><path class="h" d="M438 300L708 30"/><path class="h k" d="M445 300L715 30"/><path class="h k" d="M452 300L722 30"/><path class="h" d="M459 300L729 30"/><path class="h k" d="M466 300L736 30"/><path class="h k" d="M473 300L743 30"/><path class="h" d="M480 300L750 30"/><path class="h k" d="M487 300L757 30"/><path class="h k" d="M494 300L764 30"/><path class="h" d="M501 300L771 30"/><path class="h k" d="M508 300L778 30"/><path class="h k" d="M515 300L785 30"/><path class="h" d="M522 300L792 30"/><path class="h k" d="M529 300L799 30"/><path class="h k" d="M536 300L806 30"/><path class="h" d="M543 300L813 30"/><path class="h k" d="M550 300L820 30"/><path class="h k" d="M557 300L827 30"/><path class="h" d="M564 300L834 30"/><path class="h k" d="M571 300L841 30"/><path class="h k" d="M578 300L848 30"/><path class="h" d="M585 300L855 30"/><path class="h k" d="M592 300L862 30"/><path class="h k" d="M599 300L869 30"/><path class="h" d="M606 300L876 30"/><path class="h k" d="M613 300L883 30"/><path class="h k" d="M620 300L890 30"/><path class="h" d="M627 300L897 30"/><path class="h k" d="M634 300L904 30"/><path class="h k" d="M641 300L911 30"/><path class="h" d="M648 300L918 30"/><path class="h k" d="M655 300L925 30"/><path class="h k" d="M662 300L932 30"/><path class="h" d="M669 300L939 30"/><path class="h k" d="M676 300L946 30"/><path class="h k" d="M683 300L953 30"/><path class="h" d="M690 300L960 30"/><path class="h k" d="M697 300L967 30"/><path class="h k" d="M704 300L974 30"/><path class="h" d="M711 300L981 30"/><path class="h k" d="M718 300L988 30"/><path class="h k" d="M725 300L995 30"/><path class="h" d="M732 300L1002 30"/><path class="h k" d="M739 300L1009 30"/><path class="h k" d="M746 300L1016 30"/><path class="h" d="M753 300L1023 30"/><path class="h k" d="M760 300L1030 30"/><path class="h k" d="M767 300L1037 30"/><path class="h" d="M774 300L1044 30"/><path class="h k" d="M781 300L1051 30"/><path class="h k" d="M788 300L1058 30"/><path class="h" d="M795 300L1065 30"/><path class="h k" d="M802 300L1072 30"/><path class="h k" d="M809 300L1079 30"/><path class="h" d="M816 300L1086 30"/><path class="h k" d="M823 300L1093 30"/><path class="h k" d="M830 300L1100 30"/><path class="h" d="M837 300L1107 30"/><path class="h k" d="M844 300L1114 30"/><path class="h k" d="M851 300L1121 30"/><path class="h" d="M858 300L1128 30"/><path class="h k" d="M865 300L1135 30"/><path class="h k" d="M872 300L1142 30"/><path class="h" d="M879 300L1149 30"/><path class="h k" d="M886 300L1156 30"/><path class="h k" d="M893 300L1163 30"/><path class="h" d="M900 300L1170 30"/><path class="h k" d="M907 300L1177 30"/><path class="h k" d="M914 300L1184 30"/><path class="h" d="M921 300L1191 30"/><path class="h k" d="M928 300L1198 30"/><path class="h k" d="M935 300L1205 30"/><path class="h" d="M942 300L1212 30"/><path class="h k" d="M949 300L1219 30"/><path class="h k" d="M956 300L1226 30"/><path class="h" d="M963 300L1233 30"/><path class="h k" d="M970 300L1240 30"/><path class="h k" d="M977 300L1247 30"/><path class="h" d="M984 300L1254 30"/><path class="h k" d="M991 300L1261 30"/><path class="h k" d="M998 300L1268 30"/><path class="h" d="M1005 300L1275 30"/><path class="h k" d="M1012 300L1282 30"/><path class="h k" d="M1019 300L1289 30"/><path class="h" d="M1026 300L1296 30"/><path class="h k" d="M1033 300L1303 30"/></g>
+<path class="o" d="M140 296L330 150L376.65 218.1M330 150L343.9 251.4"/>
+<path class="o" d="M760.3 220L800 170L1010 296M800 170L835.7 282.5"/>
+<path class="o" d="M300 296L548 44L852 296M548 44L612 296"/>
+<path class="b" d="M0 296H1136"/>
+<circle class="o" cx="196" cy="74" r="25"/>
+<g transform="translate(924 46) scale(0.56)"><path class="m" d="M50 6A44 44 0 1 0 94 50A34 34 0 1 1 50 6Z"/></g>
+</svg>
+    <div class="sides">
+      <div><span class="word">Solana</span><span class="label">The sunny side</span>Public. SOL and the issuer’s token sit in ordinary Solana accounts, and markets, lending and custody work with them as they do today.</div>
+      <div class="mid"><svg viewBox="0 0 96 22" aria-hidden="true"><path d="M2 6H92M86 2l6 4-6 4M94 16H4M10 12l-6 4 6 4"></path></svg><span class="label">One transaction each way</span></div>
+      <div><span class="word">LUNADA</span><span class="label">The shaded side</span>Private, inside the pool. Asset, amount, sender and receiver are not on view. They are shown only where the holder, or the auditor the issuer named, shows them.</div>
+    </div>
+  </figure>
+  <div class="cols c4 block">
+    <div><h3>Private by default</h3><p>A transfer hides the asset, the amount, the sender and the receiver. No operator, committee or outside network sees them.</p></div>
+    <div><h3>Standard tokens</h3><p>LUNADA defines no token format of its own. A token is created and minted by Token-2022, Solana’s current token program, and its issuer keeps the mint authority.</p></div>
+    <div><h3>Rules per token</h3><p>The auditor and the list of approved holders belong to one token. They are fixed when it is created, and every holder can read them before accepting the asset.</p></div>
+    <div><h3>Proof in place of trust</h3><p>A transfer that breaks a rule has no valid proof and cannot take place. No intermediary approves a single transfer.</p></div>
+  </div>
+</div></section>
+
+<section class="band" id="scope"><div class="wrap">
+  <div class="head">
+    <p class="label">What the pool holds</p>
+    <h2>SOL, and new tokens that carry at least one rule.</h2>
+    <p class="lede">A token enters the pool only if its issuer created it with an auditor, a list of approved holders, or both. Tokens that already exist, and tokens with neither rule, stay outside.</p>
+  </div>
+  <div class="block tscroll">
+    <table class="scope">
+      <thead><tr><th>Asset</th><th>Rule</th><th>An observer of a private transfer learns</th></tr></thead>
+      <tbody>
+        <tr><td>SOL</td><td>None. SOL is the native coin of Solana.</td><td>Nothing about asset, amount or parties</td></tr>
+        <tr><td>Audited token</td><td>One auditor, named by the issuer, reads every private movement.</td><td>That some audited token moved</td></tr>
+        <tr><td>Members-only token</td><td>Only addresses the issuer has approved, for example after a know-your-customer (KYC) check, receive and send it privately.</td><td>That some members-only token moved</td></tr>
+        <tr><td>Members-only and audited</td><td>Both rules.</td><td>That some token of this kind moved</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="after">SOL is in the pool because it pays the network fee of every private action and serves as the private means of payment between holders. The supply of every asset stays public.</p>
+</div></section>
+
+<section class="band" id="issuers"><div class="wrap">
+  <div class="head">
+    <p class="label">For issuers</p>
+    <h2>Set the rules once, when the token is created.</h2>
+    <p class="lede">The issuer works in the LUNADA wallet, a browser extension. Its Solana account is the issuer of the token and stays its mint authority.</p>
+  </div>
+  <div class="panels block">
+    <div class="panel side">
+      <div class="txt">
+        <h3>Create the token</h3>
+        <p>Choose the symbol and the two rules. For an audited token, name the audit key: your own, or the key of a registrar, a transfer agent or an audit firm. Creating the token and registering it with the pool are one transaction, so the rules hold from the first unit.</p>
+        <ul class="points">
+          <li><b>Issue and redeem.</b> The issuer mints new units straight into a private note, its own or an investor’s. The public sees that the supply grew, and not who received the units. A burn lowers the public supply by the same amount.</li>
+          <li><b>The public side.</b> With the option “public accounts need approval”, units leave the pool only to Solana accounts the issuer has approved, for example a custodian’s. The wallet states the price first: an issuer with this power can freeze any public account of the token, the pool’s vault included.</li>
+          <li><b>What an issuer cannot do.</b> Freeze, move or take back a private note. Its controls are the mint authority, the auditor’s read access, the member list and, where chosen, the approval of public accounts.</li>
+        </ul>
+      </div>
+      <div class="crop fill">
+        <div class="ui" inert>
+        <div class="workspace-nav"><span>Account</span><span class="active">Assets</span><span>Activity</span><span>Audit</span><span>Members</span><span>Settings</span></div>
+        <div class="sec">
+          <div class="section-heading"><h2>Assets</h2></div>
+          <div class="workspace-subnav"><span>Holdings</span><span>Receive</span><span>Send</span><span>Make private</span><span>Make public</span><span>Mint</span><span>Burn</span><span class="active">Create token</span><span>Disclose</span><span>Check</span></div>
+          <div class="form">
+            <label for="f2-symbol">Symbol</label><input id="f2-symbol" type="text" value="BOND">
+            <label for="f2-dec">Decimal places</label><input id="f2-dec" type="text" value="0">
+            <label class="check"><input type="checkbox" checked="checked"> Audited token</label>
+            <label for="f2-key">Audit key of the auditor</label><input id="f2-key" type="text" value="lunadaaudit1_WKctDE7mGapDjPCFedERFneD7oHQsspDopcDQCn9JUdKmHZ5MhqN0Xk3vE2uT8yQw4cJrLs9bHf6aPd1oGiKmZxC7VnBt5WQe4Yt">
+            <button class="secondary" type="button">Use this wallet's audit key</button>
+            <label class="check"><input type="checkbox" checked="checked"> Members only</label>
+            <label class="check"><input type="checkbox"> Public accounts need approval</label>
+            <p class="note">Creates a standard Solana token (Token-2022). Your Solana account is its issuer: it holds the mint authority, and only it can mint. The token has no freeze authority.</p>
+            <p class="note">Members only: only LUNADA addresses you approve under Members can receive this token privately or send it privately. This is fixed when the token is created and cannot be changed or removed later.</p>
+            <p class="note">Audited: whoever holds the secret of this audit key can read every private movement of this token: the sending address, the receiving address and the amount. This is fixed when the token is created and cannot be changed or removed later.</p>
+            <button type="button">Prepare LUNADA operation</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="panel pad">
+      <div class="phead">
+        <h3>Admit and remove holders</h3>
+        <p>Check an investor by your own process, outside the chain, then add its LUNADA address to the member list with one transaction.</p>
+      </div>
+      <div class="crop lower">
+        <div class="ui" inert>
+        <div class="workspace-nav above"><span>Account</span><span>Assets</span><span>Activity</span><span>Audit</span><span class="active">Members</span><span>Settings</span></div>
+        <div class="sec">
+          <div class="section-heading above"><h2>Members</h2><button class="secondary" type="button">Read again</button></div>
+          <p class="note above">Members-only tokens your Solana account is the issuer of. Only the LUNADA addresses on a token's list can receive it privately or send it privately. The chain holds a hash per member, no address; the names and addresses are kept in this wallet.</p>
+          <label class="above" for="f3-token">Token</label><select class="above" id="f3-token"><option>BOND (4kQ2nTz8LmWp…x9RrE1Vb)</option></select>
+          <h3 class="above">Add a member</h3>
+          <div class="form above">
+            <label for="f3-addr">LUNADA address</label><input id="f3-addr" type="text" placeholder="lunada1_…">
+            <label for="f3-name">Name (optional, kept in this wallet only)</label><input id="f3-name" type="text">
+            <button type="button">Prepare</button>
+          </div>
+          <h3>Members</h3>
+          <p class="note">2 members. A removal takes hold after about one minute. A removed address keeps its notes and can still make whole notes public or burn them, nothing else.</p>
+          <div class="scroll"><table class="wide">
+            <thead><tr><th>Name</th><th>LUNADA address</th><th>Since</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>Carol Ltd</td><td class="long">lunada1_ABxxcicByAjcMyyK5iwbku5jnWsDlZhCpt8t8VX7EnoF-CpKHQV8vm_FKazvbxnHgNYRjkt8ot4Kh026uNLAASAQwXR8yyp7u8X0aTDhS0Qp-pDJNQXXhMZn2KpHRIuLIEvaJMKDpDs</td><td>11/17/2026, 9:11:58 PM</td><td><button class="secondary" type="button">Remove</button></td></tr>
+              <tr><td>Bob GmbH</td><td class="long">lunada1_ABxxcicByAjcMyyK5iwbku5jnWsDlZhCpt8t8VX7Enqomwl56DxDLRZCQSM8B2db5GfHnPl7di0nTzPqV4n97qh5pyOxsR7_cuviIymlsdvsZAzRPIuQuWh3GWh6ydVIoF3Gnv8YMQ</td><td>11/17/2026, 9:13:02 PM</td><td><button class="secondary" type="button">Remove</button></td></tr>
+            </tbody>
+          </table></div>
+          <button class="secondary" type="button">Save member file</button><button class="secondary" type="button">Load member file</button>
+          <p class="note">The member file holds the names and addresses of all your tokens' members. Keep it: a wallet restored from its recovery phrase shows the places without addresses until the file is loaded.</p>
+        </div>
+      </div>
+      </div>
+      <div class="cols c3 soft-rule">
+        <p>The chain stores one hash per member. Names and addresses stay in the issuer’s wallet, and no identity data goes on the chain.</p>
+        <p>Every private transfer of the token proves that sender and receiver are on the list.</p>
+        <p>A removed address can no longer receive or send the token privately. It keeps an exit: it can make whole notes public or burn them.</p>
+      </div>
+    </div>
+  </div>
+  <p class="cap">LUNADA wallet: Assets, Create token, and the member list under Members. Example data.</p>
+</div></section>
+
+<section class="band" id="auditors"><div class="wrap">
+  <div class="head">
+    <p class="label">For auditors</p>
+    <h2>Read every private movement of one token. Change nothing.</h2>
+    <p class="lede">An auditor gives its audit key to the issuer. Once a token is created with it, every private movement of that token carries one more encrypted copy for the auditor, and the proof shows that the copy is correct. A movement without it has no valid proof.</p>
+  </div>
+  <div class="panels block">
+    <div class="panel">
+      <div class="crop c flush">
+        <div class="ui" inert>
+      <div class="workspace-nav"><span>Account</span><span>Assets</span><span>Activity</span><span class="active">Audit</span><span>Members</span><span>Settings</span></div>
+      <div class="sec">
+        <div class="section-heading"><h2>Audit</h2><button class="secondary" type="button">Read again</button></div>
+        <p class="note">Tokens whose issuer named this wallet's audit key. You can read every private movement of them: sending address, receiving address and amount. You cannot spend, stop or change anything. This wallet's audit key is under Assets, Receive.</p>
+        <label for="f4-token">Token</label><select id="f4-token"><option>BOND, SPL 4kQ2nTz8LmWpGd5vYh3CsJe7NbXa9Ru6TfKx9RrE1Vb</option></select>
+        <h3>Checked against the chain</h3>
+        <p class="note">Complete: the 2 unspent notes of this token add up to 850, and the pool's vault holds 850.</p>
+        <h3>Private balance per address</h3>
+        <div class="scroll"><table class="wide">
+          <thead><tr><th>LUNADA address</th><th>Amount</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td class="long">lunada1_ABxxcicByAjcMyyK5iwbku5jnWsDlZhCpt8t8VX7EnoF-CpKHQV8vm_FKazvbxnHgNYRjkt8ot4Kh026uNLAASAQwXR8yyp7u8X0aTDhS0Qp-pDJNQXXhMZn2KpHRIuLIEvaJMKDpDs</td><td>650</td><td>1</td></tr>
+            <tr><td class="long">lunada1_ABxxcicByAjcMyyK5iwbku5jnWsDlZhCpt8t8VX7Enqomwl56DxDLRZCQSM8B2db5GfHnPl7di0nTzPqV4n97qh5pyOxsR7_cuviIymlsdvsZAzRPIuQuWh3GWh6ydVIoF3Gnv8YMQ</td><td>200</td><td>1</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Movements, newest first</h3>
+        <div class="scroll"><table class="wide">
+          <thead><tr><th>Time</th><th>What</th><th>From</th><th>To</th><th>Amount</th><th>Transaction</th></tr></thead>
+          <tbody>
+            <tr><td>11/17/2026, 7:30:48 PM · slot 61149</td><td>Burn</td><td class="long">lunada1_ABxxcicByAjcMyyK5iwbku5jnWsDlZhCpt8t8VX7EnoF-CpKHQV8vm_FKazvbxnHgNYRjkt8ot4Kh026uNLAASAQwXR8yyp7u8X0aTDhS0Qp-pDJNQXXhMZn2KpHRIuLIEvaJMKDpDs</td><td>burned</td><td>50</td><td class="long">4Br9mHzLHkeyQ4aYkuSG78QZgUZx1EPdWtJYzjWomTEM7Yqf7uj51U9H9uNJ8or9Q7fNX6f7BDmgoterVhc8zCwB</td></tr>
+            <tr><td>11/17/2026, 7:30:21 PM · slot 61083</td><td>Withdrawal</td><td class="long">lunada1_ABxxcicByAjcMyyK5iwbku5jnWsDlZhCpt8t8VX7Enqomwl56DxDLRZCQSM8B2db5GfHnPl7di0nTzPqV4n97qh5pyOxsR7_cuviIymlsdvsZAzRPIuQuWh3GWh6ydVIoF3Gnv8YMQ</td><td>made public</td><td>100</td><td class="long">3SHRHNZg7kVUKyax6Drt4n7tmmaFx8mqZhoQUtKLPLGLZgqqap9EKknB6rLiXCBeBRwM4AX6ma6Tv9mUfZ2cKt6L</td></tr>
+            <tr><td>11/17/2026, 7:29:55 PM · slot 61018</td><td>Transfer</td><td class="long">lunada1_ABxxcicByAjcMyyK5iwbku5jnWsDlZhCpt8t8VX7EnoF-CpKHQV8vm_FKazvbxnHgNYRjkt8ot4Kh026uNLAASAQwXR8yyp7u8X0aTDhS0Qp-pDJNQXXhMZn2KpHRIuLIEvaJMKDpDs</td><td class="long">lunada1_ABxxcicByAjcMyyK5iwbku5jnWsDlZhCpt8t8VX7Enqomwl56DxDLRZCQSM8B2db5GfHnPl7di0nTzPqV4n97qh5pyOxsR7_cuviIymlsdvsZAzRPIuQuWh3GWh6ydVIoF3Gnv8YMQ</td><td>300</td><td class="long">4LoqBUqpYgC5jETgpZ2qLwTrx4DGjbUmBCmAFRoy9YnpgZU3978D2hu2Kf4h4Z4JAVH6q87UYft28SyGATfW7wXk</td></tr>
+            <tr><td>11/17/2026, 7:29:31 PM · slot 60959</td><td>Deposit</td><td>from the public side</td><td class="long">lunada1_ABxxcicByAjcMyyK5iwbku5jnWsDlZhCpt8t8VX7EnoF-CpKHQV8vm_FKazvbxnHgNYRjkt8ot4Kh026uNLAASAQwXR8yyp7u8X0aTDhS0Qp-pDJNQXXhMZn2KpHRIuLIEvaJMKDpDs</td><td>1,000</td><td class="long">25UF3r7KcuJYywd95zJ2MeAvnzZ478VbNkYbuaj4UfcNmfT6r1skyUVLuh8tXqTGwgVvpR6FYGBaMzM2u4ZUTtwe</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Time and slot are the event recorder's record. Addresses and amounts are read from the copies the chain holds for this audit key, and each note is checked against the chain.</p>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+  <p class="cap">LUNADA wallet: Audit. The auditor’s ledger of one token. The auditor sees addresses, and the issuer’s member list ties them to names. Example data.</p>
+  <div class="cols c3 block near">
+    <div><h3>Complete</h3><p>The ledger is checked against the chain: the unspent notes must add up to the balance of the token’s vault. If a copy were withheld from the auditor, the ledger would say that it is not complete.</p></div>
+    <div><h3>Read only</h3><p>The auditor cannot spend, block or change anything, and it sees nothing of other tokens or of SOL.</p></div>
+    <div><h3>For good</h3><p>A token has one audit key, and it cannot be changed or removed. An issuer chooses it with the same care as the custody of the asset itself.</p></div>
+  </div>
+</div></section>
+
+<section class="band" id="holders"><div class="wrap">
+  <div class="head">
+    <p class="label">For holders</p>
+    <h2>Show a bank one fact, and nothing else.</h2>
+    <p class="lede">A holder answers a bank, a lender or a buyer with a short text that the reader checks alone against Solana. It can open one note, prove one payment, or hand over a view key that reads a whole account and cannot spend. It can also prove a minimum balance without opening anything.</p>
+  </div>
+  <div class="panels block">
+    <div class="panel s6">
+      <div class="txt"><h3>The holder makes the proof</h3></div>
+      <div class="crop fill">
+        <div class="ui" inert>
+          <h3>Prove holdings</h3>
+          <p class="note">Proves that this wallet holds unspent notes of one asset that add up to at least, or exactly, an amount. It shows no note, no other balance and, unless you choose it, no address.</p>
+          <label for="f5-asset">Asset</label><select id="f5-asset"><option>SOL (native)</option></select>
+          <label for="f5-amount">Amount</label><input id="f5-amount" type="text" value="250">
+          <label for="f5-mode">The notes add up to</label><select id="f5-mode"><option>At least this amount</option></select>
+          <label class="check"><input type="checkbox"> State my LUNADA address</label>
+          <label for="f5-ch">Challenge from the reader (optional)</label><input id="f5-ch" type="text" value="credit line, November 2026">
+          <button type="button">Make proof</button>
+          <label for="f5-proof">Proof of holdings</label>
+          <output id="f5-proof" class="cut">lunadaown1_ABxxcicByAjcMyyK5iwbku5jnWsDlZhCpt8t8VX7Enob9YF40fkxTEjgfmu7L5J0WC3zlV7GDGwqPkoJBTIfAQAAAAAAAAC0LcEbIYGg3OY0AVxNA_C1i7ZcP-j4yYbOgWd6xX3R9mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC_IMoIivkIy61F3mN-dXeNpuJacnFFekyDonh228inAAAAAAAAAPoA</output>
+          <button type="button">Copy proof of holdings</button>
+          <p class="note">Made from 1 of your notes. The reader learns the nullifier of this note and can see later when it is spent. Nothing else about this wallet.</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel s6 pad">
+      <div class="txt"><h3>The reader checks it</h3></div>
+      <div class="shot">
+        <div class="ui" inert>
+          <h3>Proof of holdings</h3>
+          <dl>
+            <dt>Token</dt><dd>SOL (native)</dd>
+            <dt>Amount</dt><dd>at least 250</dd>
+            <dt>Notes</dt><dd>1</dd>
+            <dt>Address</dt><dd class="mono">address not stated</dd>
+            <dt>Challenge</dt><dd>credit line, November 2026</dd>
+            <dt>Note tree</dt><dd>notes as of note number 179 of the tree</dd>
+          </dl>
+          <p class="note">Holds at least 250 SOL (native) now: the note is unspent.</p>
+          <table>
+            <thead><tr><th>Note</th><th>Nullifier</th><th>State now</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="long">20695266920230279792517565635952810285748375836627245122257545577291966445152</td><td>unspent</td></tr>
+            </tbody>
+          </table>
+          <p class="note">The proof and the note tree it names are checked against the chain. Spent or unspent is the chain's state at the time of this check; the holder can spend the notes afterwards.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="cap">LUNADA wallet: Prove holdings, and the reader’s check. This proof covers SOL today. For audited and members-only tokens it is planned for December 2026. Example data.</p>
+</div></section>
+
+<section class="band" id="relayers"><div class="wrap">
+  <div class="head">
+    <p class="label">Relayers and fees</p>
+    <h2>Anyone can run a relayer. Nobody has to use one.</h2>
+    <p class="lede">A Solana transaction needs a fee payer, and a fee payer is a public account. A relayer signs as fee payer and nothing else. In the same transaction the program repays it in ordinary SOL out of the sender’s private SOL. It cannot take its fee without the action taking place, and it never sees a key or an opened note.</p>
+  </div>
+  <div class="cols c4 block">
+    <div><h3>Open to anyone</h3><p>Relayers are permissionless. Anyone can run one, and the protocol itself takes no fee.</p></div>
+    <div><h3>Its own price</h3><p>A relayer charges what it chooses to cover the cost of its service, for example twice the network fee. The wallet shows the price before the holder confirms.</p></div>
+    <div><h3>A public register</h3><p>Relayers register on this page. The wallet picks one from the register, picks one at random, or uses a relayer the holder names.</p></div>
+    <div><h3>Never required</h3><p>A holder can always pay the network fee from the wallet’s own Solana account, in the open, and use no relayer at all.</p></div>
+  </div>
+  <div class="register block">
+    <h3>Relayer register</h3>
+    <div class="tscroll"><table>
+      <thead><tr><th>Relayer</th><th>Fee account</th><th>Price per transaction</th><th>State</th></tr></thead>
+    </table></div>
+    <p class="empty">No relayers yet. The register opens with the public test network, planned for January 2027.</p>
+  </div>
+</div></section>
+
+<section class="band" id="how"><div class="wrap">
+  <div class="duo">
+    <div>
+      <p class="label">How it is built</p>
+      <h2>One program and its proofs. No operator, no committee, no second chain.</h2>
+      <p class="found"><span class="label">Foundations</span>Ben-Sasson et al., Zerocash, IEEE S&amp;P 2014. Groth, On the Size of Pairing-Based Non-interactive Arguments, EUROCRYPT 2016. Grassi et al., Poseidon, USENIX Security 2021. Bowe, Gabizon and Miers, Scalable Multi-party Computation for zk-SNARK Parameters, 2017. The <a href="https://github.com/lunada-protocol/lunada-docs" rel="noopener">white paper</a> gives the full design, the limits and the measurements.</p>
+    </div>
+    <dl class="rows">
+      <dt>Notes</dt><dd>The program keeps a tree of note commitments. The chain never stores a note, only a hash that binds its asset, amount and owner. Spending a note publishes a one-time mark, the nullifier, so no note is spent twice. The construction follows Zerocash.</dd>
+      <dt>Proofs</dt><dd>Each private action carries a Groth16 zero-knowledge proof of 256 bytes on the BN254 curve, which the program verifies with Solana’s built-in curve operations. Proofs are made in the wallet, so no secret leaves the holder’s machine.</dd>
+      <dt>Settlement</dt><dd>Every action settles in one Solana transaction.</dd>
+      <dt>Keys</dt><dd>The proving keys will come from a public ceremony with many independent participants. One honest participant is enough to make forgery impossible.</dd>
+    </dl>
+  </div>
+</div></section>
+
+<section class="band" id="roadmap"><div class="wrap">
+  <div class="head">
+    <p class="label">Status and roadmap</p>
+    <h2>Built. Not yet on a public network.</h2>
+    <p class="lede">The Solana program with the private pool, the disclosures, audited and members-only tokens, the browser wallet, a relayer and an event recorder are implemented and run in a test environment.</p>
+  </div>
+  <ol class="cols c6 soft block">
+    <li><span class="label">December 2026</span><h3>Larger transfers and wallet hardening</h3><p>Up to eight notes in and out, a sender memo for restored wallets, proof of holdings for audited and members-only tokens, deposits through a relayer.</p></li>
+    <li><span class="label">January 2027</span><h3>Public test network</h3><p>Solana devnet with several independent relayers and a public event recorder. Anyone can try the wallet with test tokens.</p></li>
+    <li><span class="label">February 2027</span><h3>Full independent audit</h3><p>The circuits and the Solana program, with the report published.</p></li>
+    <li><span class="label">February 2027</span><h3>Public key ceremony</h3><p>For the proving keys of every circuit, held after the audit. It is public, and backers are welcome to take part.</p></li>
+    <li><span class="label">March 2027</span><h3>Mainnet launch</h3><p>After the ceremony and the audit, with the upgrade key locked or under published governance.</p></li>
+    <li><span class="label">Q2 2027</span><h3>More assets</h3><p>NFTs, tokens that exist once, with private holding and a public side, and private sales of a note in one transaction.</p></li>
+  </ol>
+  <p class="after">A first external audit has taken place and its fixes are applied. A full independent audit before mainnet is pending. The proving keys are development keys, so the system must not hold real value before that audit and the public key ceremony.</p>
+</div></section>
+
+<section class="band invert" id="raise"><div class="wrap">
+  <div class="head">
+    <p class="label">The raise</p>
+    <h2>From a built system to mainnet.</h2>
+    <p class="lede">LUNADA is raising on Backable to take the system through the public test network, the full audit and the key ceremony to mainnet. Raise page: <span class="placeholder">[RAISE PAGE LINK]</span></p>
+  </div>
+  <div class="cols c4 figs block">
+    <div><span class="label">Minimum raise</span><b>USD 250,000</b><p>Proposed terms. The signed agreement controls.</p></div>
+    <div><span class="label">Monthly team budget</span><b>USD 16,667</b><p>Covers team compensation and business expenses. It is paid through the treasury’s spending limit after the raise has completed, and governance can change it.</p></div>
+    <div><span class="label">Team tokens</span><b>12,900,000</b><p>LUNADA, locked for at least 18 months. Performance thresholds at 2x, 4x, 8x, 16x and 32x of the raise entry price.</p></div>
+    <div><span class="label">Raise window</span><b>7 days</b><p>Opening <span class="placeholder">[OPENING DATE]</span></p></div>
+  </div>
+  <div class="cols c3 block">
+    <div><span class="label">Who it is for</span><p>Issuers of tokenised securities, fund units and real-world assets on Solana, and the institutions that hold and trade them. A professional marketing and growth team will be employed to address them.</p></div>
+    <div><span class="label">Why now</span><p>Tokenised real-world assets on public chains grew from about USD 12 billion to about USD 32 billion in the year to June 2026 (source: RWA.xyz), and issuers are choosing their chain now. Solana checks zero-knowledge proofs on chain at low cost.</p></div>
+    <div><span class="label">Team</span><p>Lunatic, founder, full-time. Designed and built LUNADA: the circuits, the Solana program, the wallet and the relayer. Several years of research into private asset systems. The plan provides for five full-time people in the first year.</p></div>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="foot"><div class="wrap"><div class="foot-in">
+  <span>Not a second chain and not a separate ledger. The other side of Solana itself.</span>
+  <nav aria-label="Links">
+    <a href="https://github.com/lunada-protocol/lunada-docs" rel="noopener">White paper and documents</a>
+    <a href="https://x.com/lunada_protocol" rel="noopener">@lunada_protocol</a>
+  </nav>
+</div></div></footer>
+
+</body>
+</html>

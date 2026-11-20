@@ -1,0 +1,3 @@
+Inter (inter-latin-var.woff2), copyright The Inter Project Authors.
+IBM Plex Mono (plex-mono-400.woff2, plex-mono-500.woff2), copyright IBM Corp.
+Both are licensed under the SIL Open Font License, Version 1.1: https://openfontlicense.org
